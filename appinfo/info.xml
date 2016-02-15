@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <info>
     <id>activity_ext</id>
-    <name>Activity Ext</name>
-    <description>My first ownCloud app</description>
+    <name>Activity Extension</name>
+    <description>Show files move, copy and rename activity</description>
     <licence>AGPL</licence>
     <author>eric</author>
     <version>0.0.1</version>
