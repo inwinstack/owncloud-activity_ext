@@ -2,7 +2,7 @@
 <info>
     <id>activity_ext</id>
     <name>Activity Extension</name>
-    <description>Show files move, copy and rename activity</description>
+    <description>Save activity of files move, copy and rename. And list in Activity Page.</description>
     <licence>AGPL</licence>
     <author>eric</author>
     <version>0.0.1</version>
