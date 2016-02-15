@@ -239,10 +239,9 @@ class Activity implements IExtension {
 
 
     protected function isHomeDirectory($path, $imgOrtext) {         
-        if($imgOrtext == 1) {
+        if($imgOrtext === 1) {
             $pattern = '/(<a class="filename has-tooltip".*>)(.*)(<.*>)/';
             preg_match($pattern, $path, $matches);
-            
             return empty($matches[2]);
 
         } else if($imgOrtext == -1) {
@@ -282,10 +281,11 @@ class Activity implements IExtension {
             preg_match($pattern, $newpath, $matches);
             
             if(count($matches)) {
-                preg_match('/.*=%2F(.*)&/', $matches[1], $dirArray);
-                $dir = $dirArray[1];
-                $dir = explode('%2F',$dir);
-                $replacement = '${1}'.$dir[count($dir) - 1].'${3}';
+                preg_match('/.*=%2F(.*)&.*|.*=%2F(.*)" title.*/', $matches[1], $dirArray);
+                $dir = empty($dirArray[1]) ? $dirArray[2] : $dirArray[1];
+                $dircut = explode('%2F',$dir);
+                $dircurrent = empty($dircut) ? $dir : (empty($dirArray[1]) ? $dircut[count($dircut) - 2] : $dircut[count($dircut) -1 ]);
+                $replacement = '${1}'.$dircurrent.'${3}';
                 
                 return preg_replace($pattern,$replacement,$newpath);
             }
