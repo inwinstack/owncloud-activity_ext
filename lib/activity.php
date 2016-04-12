@@ -131,9 +131,9 @@ class Activity implements IExtension {
 
                 if($this->isHomeDirectory($params[1], $imgOrtext)) {
                     $params[1] = $this->params_replace($params[1],'long', $l);
-
                     return (string) $l->t('You moved the file %1$s to your %2$s', $params);
                 } else {
+                    $imgOrtext === 1 && $params[1] = urldecode($params[1]);
                     return (string) $l->t('You moved the file %1$s to %2$s', $params);
                 }
 
@@ -147,7 +147,7 @@ class Activity implements IExtension {
                     return (string) $l->t('You copyed the file %1$s to your %2$s', $params);
 
                 } else {
-                    
+                    $imgOrtext === 1 && $params[1] = urldecode($params[1]);
                     return (string) $l->t('You copyed the file %1$s to %2$s', $params);
                 }
 
